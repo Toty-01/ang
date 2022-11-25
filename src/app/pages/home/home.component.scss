@@ -1,0 +1,47 @@
+body {
+  margin-top: 60px;
+  text-align: center;
+}
+h2:first-child {
+  text-align: center;
+  margin: 3rem;
+  margin-top: 6rem !important;
+}
+.myClass {
+  color: blue
+}
+.temp {
+  height: 20px; width: 60px;
+}
+.cold{
+  background-color: blue;
+}
+.normal{
+  background-color: green;
+}
+.hot{
+  background-color: red;
+}
+.yellow {
+    background-color: yellow;
+}
+.ex > li {
+  list-style-type: none;
+  text-align: center;
+  margin: 1rem;
+}
+.cont > ul {
+  list-style-type: none;
+  padding-left: 0;
+  width: 50%;
+  margin-left: auto;
+  margin-right: auto;
+}
+.cont > ul:hover {
+  cursor: default;
+}
+.cont > ul > li {
+  padding: 0.2rem;
+  border-radius: 0.4rem;
+  margin-top: 0.4rem;
+}

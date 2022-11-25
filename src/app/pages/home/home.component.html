@@ -1,0 +1,79 @@
+<body>
+  <h2>Exercices</h2>
+
+  <div [ngClass]="'myClass'">cette balise possede la classe myClass</div>
+
+ <p class="text-center mt-5"> temperature 1  = {{temperature1}}</p>
+  <div class="temp mx-auto" [ngClass]= "{
+    'cold': temperature1 <= 0,
+    'normal': temperature1 > 0 && temperature1 < 4,
+    'hot': temperature1 >= 4
+    }">
+  </div>
+ <p class="text-center">temperature 2  = {{temperature2}}</p>
+  <div class="temp mx-auto" [ngClass]= "{
+    'cold': temperature2 <= 0,
+    'normal': temperature2 > 0 && temperature2 < 4,
+    'hot': temperature2 >= 4
+    }">
+  </div>
+ <p class="text-center">temperature 3  = {{temperature3}}</p>
+  <div class="temp mx-auto mb-5" [ngClass]= "{
+    'cold': temperature3 <= 0,
+    'normal': temperature3 > 0 && temperature3 < 4,
+    'hot': temperature3 >= 4
+    }">
+  </div>
+
+<div [ngSwitch]="city">
+  <div *ngSwitchCase="'Paris'" class="text-center">Paris</div>
+  <div *ngSwitchCase="'Milan'" class="text-center">Jsais pas</div>
+  <div *ngSwitchCase="'Madrid'" class="text-center">Madrid</div>
+</div>
+
+<h2>Produits de la semaine</h2>
+  <div class="ex">
+    <ng-container *ngFor="let product of products" [ngSwitch]="product.organic">
+      <ng-container *ngSwitchCase="true">
+          <li>{{product.name}} - {{product.unitPrice}}</li>
+      </ng-container>
+    </ng-container>
+  </div>
+
+  <h2>Liste des clients majeurs abonnés à la newsletter :</h2>
+  <div class="cont">
+      <ul>
+        <ng-container *ngFor="let customer of customers">
+          <ng-container *ngIf="customer.age >= ageMin">
+              <li (click)="showAlert(customer.purchases)" [ngClass]="{
+                  'hot': customer.purchases === 0,
+                  'yellow': customer.purchases === 1,
+                  'normal': customer.purchases >= 2
+              }">{{customer.name}}</li>
+          </ng-container>
+        </ng-container>
+      </ul>
+    <p>En rouge commande = 0</p>
+    <p>En jaune commande = 1</p>
+    <p>En rouge commande >= 2</p>
+  </div>
+
+  <div *ngIf="myInput==='area'; then area; else input"></div>
+  <ng-template #area>
+    <label>Ma text-area</label>
+    <textarea></textarea>
+  </ng-template>
+  <ng-template #input>
+    <label>Mon input</label>
+    <input type="text" value="{{nerd}}"/>
+  </ng-template>
+
+  <footer>
+     <div class="foot">
+      <p>Cauche Anthony</p>
+     </div>
+  </footer>
+
+</body>
+
+<router-outlet></router-outlet>
