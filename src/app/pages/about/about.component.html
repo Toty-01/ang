@@ -1,6 +1,21 @@
 <body>
   <div class="title"></div>
   <h1 class="text-center">about page</h1>
-<p class="m-5">Lorem ipsum tore provident cumque, quis, laudantium fuga iure, eius repellendus at? Quidem expedita obcaecati ullam porro quos molestias, libero qui voluptate quas provident consequuntur mollitia commodi.
-</p>
+
+  <div class="btns">
+    <button type="button" (click)="increment()">Increment</button>
+      <span>{{counter.count}}</span>
+    <button type="button" (click)="decrement()">decrement</button>
+  </div>
+
+  <p>Votre livraison est prévue le : {{ delivery | date: "dd/MM/yyyy" }}</p>
+  <p>Bonjour et bienvenue {{ name | titlecase }}</p>
+
+  <h2 class="text-center mt-4">Mon objet</h2>
+  <p>Bonjour {{ myObject.firstName | lowercase }} {{myObject.name | uppercase }}. Votre adresse se situe {{ myObject.adresse | titlecase }}</p>
+  <pre>{{ myObject | json }}</pre>
+
+  <p>Delivery on : {{ livraison | date: format }}</p>
+  <button class="btn-date" (click)="toggleFormat()">Change date format</button>
+
 </body>
